@@ -41,9 +41,9 @@ static int MetersEvents[] = {' ', 13, ERR, KEY_DC, KEY_F(10)};
 // terminals, breaking our aligning.
 // In <http://unicode.org/reports/tr11/>, arrows (U+2019..U+2199) are
 // considered "Ambiguous characters".
-static const char* const MetersMovingFunctions[] = {"Style ", "Lock  ", "Up    ", "Down  ", "Left  ", "Right ", "       ", "Delete", "Done  ", NULL};
-static const char* const MetersMovingKeys[] = {"Space", "Enter", "Up", "Dn", "<-", "->", "  ", "Del", "F10"};
-static int MetersMovingEvents[] = {' ', 13, KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, ERR, KEY_DC, KEY_F(10)};
+static const char* const MetersMovingFunctions[] = {"Style ", "Lock  ", "Up    ", "Up    ", "Down  ", "Down  ", "Left  ", "Left  ", "Right ", "Right ", "       ", "Delete", "Done  ", NULL};
+static const char* const MetersMovingKeys[] = {"Space", "Enter", "Up", "k", "Dn", "j", "<-", "h", "->", "l", "  ", "Del", "F10"};
+static int MetersMovingEvents[] = {' ', 13, KEY_UP, KEY_UP, KEY_DOWN, KEY_DOWN, KEY_LEFT, KEY_LEFT, KEY_RIGHT, KEY_RIGHT, ERR, KEY_DC, KEY_F(10)};
 static FunctionBar* Meters_movingBar = NULL;
 
 static void MetersPanel_delete(Object* object) {
@@ -156,6 +156,7 @@ static HandlerResult MetersPanel_eventHandler(Panel* super, int ch) {
          break;
       }
       case KEY_RIGHT:
+      case 'l':
       {
          sideMove = moveToNeighbor(this, this->rightNeighbor, selected);
          if (this->moving && !sideMove) {
@@ -167,6 +168,7 @@ static HandlerResult MetersPanel_eventHandler(Panel* super, int ch) {
          break;
       }
       case KEY_LEFT:
+      case 'h':
       {
          sideMove = moveToNeighbor(this, this->leftNeighbor, selected);
          if (this->moving && !sideMove) {
