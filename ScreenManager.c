@@ -244,13 +244,9 @@ void ScreenManager_run(ScreenManager* this, Panel** lastFocus, int* lastKey) {
          continue;
       }
       switch (ch) {
-         case 'h':
          case KEY_ALT('H'): ch = KEY_LEFT; break;
-         case 'j':
          case KEY_ALT('J'): ch = KEY_DOWN; break;
-         case 'k':
          case KEY_ALT('K'): ch = KEY_UP; break;
-         case 'l':
          case KEY_ALT('L'): ch = KEY_RIGHT; break;
       }
       redraw = true;
@@ -267,6 +263,7 @@ void ScreenManager_run(ScreenManager* this, Panel** lastFocus, int* lastKey) {
          rescan = true;
          sortTimeout = 0;
       }
+
       if (result & HANDLED) {
          continue;
       } else if (result & BREAK_LOOP) {

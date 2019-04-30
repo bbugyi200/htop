@@ -483,6 +483,16 @@ HandlerResult Panel_selectByTyping(Panel* this, int ch) {
       this->eventHandlerState = xCalloc(100, sizeof(char));
    char* buffer = this->eventHandlerState;
 
+   switch(ch) {
+       case 'h':
+       case 'j':
+       case 'k':
+       case 'l':
+       case 'q':
+           return IGNORED;
+           break;
+   }
+
    if (ch > 0 && ch < 255 && isalnum(ch)) {
       int len = strlen(buffer);
       if (len < 99) {

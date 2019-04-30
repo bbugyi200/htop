@@ -89,9 +89,6 @@ static HandlerResult CategoriesPanel_eventHandler(Panel* super, int ch) {
       case 'l':
          ch = KEY_RIGHT;
          break;
-      case 'q':
-         ch = KEY_F(9);  // ESCAPE KEY
-         break;
    }
 
    int selected = Panel_getSelectedIndex(super);
