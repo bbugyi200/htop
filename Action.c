@@ -417,7 +417,7 @@ static const struct { const char* key; const char* info; } helpLeft[] = {
    { .key = "      K: ", .info = "hide/show kernel threads" },
    { .key = "      F: ", .info = "cursor follows process" },
    { .key = " F6 + -: ", .info = "expand/collapse tree" },
-   { .key = "  P M T: ", .info = "sort by CPU%, MEM% or TIME" },
+   { .key = "  C M T: ", .info = "sort by CPU%, MEM% or TIME" },
    { .key = "      I: ", .info = "invert sort order" },
    { .key = " F6 > .: ", .info = "select sort column" },
    { .key = NULL, .info = NULL }
@@ -438,7 +438,7 @@ static const struct { const char* key; const char* info; } helpRight[] = {
    { .key = "      L: ", .info = "list open files with lsof" },
    { .key = "      s: ", .info = "trace syscalls with strace" },
    { .key = "         ", .info = "" },
-   { .key = " F2 C S: ", .info = "setup" },
+   { .key = " F2 S: ", .info = "setup" },
    { .key = "   F1 ?: ", .info = "show this help screen" },
    { .key = "  F10 q: ", .info = "quit" },
    { .key = NULL, .info = NULL }
@@ -549,7 +549,7 @@ void Action_setBindings(Htop_Action* keys) {
    keys[KEY_RESIZE] = actionResize;
    keys['M'] = actionSortByMemory;
    keys['T'] = actionSortByTime;
-   keys['P'] = actionSortByCPU;
+   keys['C'] = actionSortByCPU;
    keys['H'] = actionToggleUserlandThreads;
    keys['K'] = actionToggleKernelThreads;
    keys['p'] = actionToggleProgramPath;
@@ -585,7 +585,6 @@ void Action_setBindings(Htop_Action* keys) {
    keys['u'] = actionFilterByUser;
    keys['F'] = Action_follow;
    keys['S'] = actionSetup;
-   keys['C'] = actionSetup;
    keys[KEY_F(2)] = actionSetup;
    keys['L'] = actionLsof;
    keys['s'] = actionStrace;
