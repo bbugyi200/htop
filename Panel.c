@@ -488,6 +488,7 @@ HandlerResult Panel_selectByTyping(Panel* this, int ch) {
        case 'j':
        case 'k':
        case 'l':
+           return (REDRAW | RESCAN);
        case 'q':
            return IGNORED;
            break;

@@ -40,21 +40,6 @@ static void ColumnsPanel_delete(Object* object) {
 
 static HandlerResult ColumnsPanel_eventHandler(Panel* super, int ch) {
    ColumnsPanel* const this = (ColumnsPanel*) super;
-
-   switch(ch) {
-      case 'h':
-         ch = KEY_LEFT;
-         break;
-      case 'j':
-         ch = KEY_DOWN;
-         break;
-      case 'k':
-         ch = KEY_UP;
-         break;
-      case 'l':
-         ch = KEY_RIGHT;
-         break;
-   }
    
    int selected = Panel_getSelectedIndex(super);
    HandlerResult result = IGNORED;
@@ -75,6 +60,7 @@ static HandlerResult ColumnsPanel_eventHandler(Panel* super, int ch) {
          }
          break;
       }
+      case 'k':
       case KEY_UP:
       {
          if (!this->moving) {
@@ -91,6 +77,7 @@ static HandlerResult ColumnsPanel_eventHandler(Panel* super, int ch) {
          result = HANDLED;
          break;
       }
+      case 'j':
       case KEY_DOWN:
       {
          if (!this->moving) {
